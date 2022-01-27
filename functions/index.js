@@ -37,8 +37,8 @@ async function scrape() {
 
 exports.helloWorld = functions.https.onRequest(async (request, response) => {
 
-    /*const tweets = await scrape();
-    const prompt = `Mars is `;
+    const tweets = await scrape();
+    const prompt = `${tweets}. `;
 
     const gptCompletion = await openai.createCompletion('text-davinci-001', {
         prompt: prompt,
@@ -49,8 +49,5 @@ exports.helloWorld = functions.https.onRequest(async (request, response) => {
         presence_penalty: 0,
     });
 
-    response.send(gptCompletion.data.choices[0].text);*/
-
-    response.send(`hello world: ${await scrape()}`);
-
+    response.send(gptCompletion.data.choices[0].text);
 });
